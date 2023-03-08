@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
 
@@ -22,7 +23,8 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val btnStart = view.findViewById<Button>(R.id.btnStart)
         btnStart.setOnClickListener {
-            val action = MainFragmentDirections.actionGameFragment()
+            val playerName = txtName.text.toString()
+            val action = MainFragmentDirections.actionGameFragment(playerName)
             Navigation.findNavController(it).navigate(action)
         }
     }
